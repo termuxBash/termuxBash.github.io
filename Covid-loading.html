@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Please change the 0 in after "content=" to 20    👇-->
+<meta charset = "UTF-8" http-equiv="refresh" content ="20 url=Covid.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Coronavirus,Covid-19" >
+<meta name="time" content="Covid-19,11/9/2020">
+<meta name="author" content="Aaron Gomes" >
+<meta name="discripstion" content="A website about coronavirus which will teach you about it and will check if you have don't have Covid-19" >
+<link rel="icon" href="https://cutt.ly/Fc8BlHj" type="image/png">
+<title>COVID-19</title>
+<style type="text/css">
+body{
+margin:0;
+padding:0;
+background-color:blue;}
+.loading{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+height:40px;
+display:flex;
+align-items:center;}
+.obj{
+width:6px;
+height:90px;
+background-color:white;
+margin:0 3px;
+border-radius:10px;
+animation-name: loading;
+animation-duration:0.8s;
+animation-iteration-count:infinite;}
+.obj:nth-child(2){animation-delay:-.1s;}
+.obj:nth-child(3){animation-delay:-.2s;}
+.obj:nth-child(4){animation-delay:-.3s;}
+.obj:nth-child(5){animation-delay:-.4s;}
+.obj:nth-child(6){animation-delay:-.5s;}
+.obj:nth-child(7){animation-delay:-.6s;}
+.obj:nth-child(8){animation-delay:-.7s;}
+.obj:nth-child(9){animation-delay:-.8s;}
+@keyframes loading{
+0%{height:0px;}
+50%{height:40px;}
+100%{height:0px;}}
+h1{
+color:lime;
+font-family:Lobster;}
+.l{
+position:relative;
+top:0px;
+left:0px;}
+.dot{
+position:relative;
+bottom:30px;
+left:110px;
+display:flex;}
+.move{
+background-color:lime;
+height:5px;
+width:5px;
+border-radius:50%;
+animation-name:dt;
+animation-iteration-count:infinite;
+animation-duration:0.6s;}
+@keyframes dt{
+0%{opacity:1;}
+50%{opacity:0.5;}
+100%{opacity:0;}}
+.move:nth-child(2){animation-delay:.1s;}
+.move:nth-child(3){animation-delay:.2s;}
+.text{
+position:absolute;
+top:160px;
+left:440px;}
+@media screen and (orientation: portrait){
+.text{position:absolute;
+top:350px;
+left:250px;}}
+.myProgress{
+width:100%;
+background-color:lightgray;}
+.myBar{
+width:1%;
+height:30px;
+background-color:green;
+text-align:center;
+line-height:30px;}
+.speed{
+outline:none;
+position:absolute;
+left:47%;
+color:black;
+background-color:aqua;
+border-color:red;
+border-radius:10px;
+border-width:2.5px;
+height:25px;
+box-shadow:0 18px 36px rgba(0,0,0,0.30), 0 14px 11px rgba(0,0,0,0.22);}
+.tip{
+position:absolute;
+bottom:0px;
+right:80px;
+color:white;
+visibility:hidden;}
+@media screen and (orientation:portrait){.tip{visibility:visible;}}
+.internet{
+background-color:red;
+color:white;
+outline:none;
+position:relative;
+top:800px;
+left:30%;}
+@media screen and (orientation:landscape){
+.internet{
+top:400px;
+left:38%;}}
+.wincover{
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+position:fixed;
+top:10%;
+left:50%;
+background-color:blue;
+height:90px;
+width:90px;}
+.winload{
+height:50px;
+width:50px;
+animation-name:rotate;
+animation-duration:4500ms;
+animation-timing-function:linear;
+animation-iteration-count:infinite;
+border-radius:50%;}
+.winload:hover{background-color:red;}
+.wincover:hover{background-color:black;}
+@keyframes rotate{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}}
+.winload span::after{
+position:absolute;
+width:8px;
+height:8px;
+background-color:white;
+content:"";
+display:block;
+border-radius:50%;
+transform-origin:25px 25px;
+animation-duration:3s;
+animation-direction:normal;
+animation-iteration-count:infinite;
+animation-timing-function:ease-in-out;}
+.dot-0::after{
+transform:rotate(0deg);
+animation-name:rotate-0;
+animation-delay:900ms;}
+@keyframes rotate-0{
+0%,20%{transform:rotate(0deg);}
+40%,60%{transform:rotate(180deg);}
+80%,100%{transform:rotate(360deg);}}
+.dot-1::after{
+transform:rotate(20deg);
+animation-name:rotate-1;
+animation-delay:775ms;}
+@keyframes rotate-1{
+0%,20%{transform:rotate(20deg);}
+40%,60%{transform:rotate(200deg);}
+80%,100%{transform:rotate(380deg);}}
+.dot-2::after{
+transform:rotate(40deg);
+animation-name:rotate-2;
+animation-delay:650ms;}
+@keyframes rotate-2{
+0%,20%{transform:rotate(40deg);}
+40%,60%{transform:rotate(220deg);}
+80%,100%{transform:rotate(400deg);}}
+.dot-3::after{
+transform:rotate(60deg);
+animation-name:rotate-3;
+animation-delay:525ms;}
+@keyframes rotate-3{
+0%,20%{transform:rotate(60deg);}
+40%,60%{transform:rotate(240deg);}
+80%,100%{transform:rotate(420deg);}}
+.dot-4::after{
+transform:rotate(80deg);
+animation-name:rotate-4;
+animation-delay:400ms;}
+@keyframes rotate-4{
+0%,20%{transform:rotate(80deg);}
+40%,60%{transform:rotate(260deg);}
+80%,100%{transform:rotate(440deg);}}
+.dot-5::after{
+transform:rotate(100deg);
+animation-name:rotate-5;
+animation-delay:275ms;}
+@keyframes rotate-5{
+0%,20%{transform:rotate(100deg);}
+40%,60%{transform:rotate(280deg);}
+80%,100%{transform:rotate(460deg);}}
+@keyframes opacity{
+from{opacity:1;}
+to{opacity:0;}}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');.container{align-items:center;justify-content:center;min-height:50vh;text-align:center;background:#0079d7;margin:0;padding:0;box-sizing:border-box;position:relative;width:100%;display:flex;justify-content:center}.wrapper{position:absolute;top:50px;transform:scale(1.5)}.loader{height:25px;width:1px;position:absolute;animation:rotate 3.5s linear infinite}.loader .dot{top:30px;height:7px;width:7px;background:#fff;border-radius:50%;position:relative}.text{position:absolute;bottom:85px;font-size:25px;font-weight:400;font-family:Poppins,sans-serif;color:#fff}@keyframes rotate{30%{transform:rotate(220deg)}40%{transform:rotate(450deg);opacity:1}75%{transform:rotate(720deg);opacity:1}76%{opacity:0}100%{opacity:0;transform:rotate(0)}}.loader:nth-child(1){animation-delay:.15s}.loader:nth-child(2){animation-delay:.3s}.loader:nth-child(3){animation-delay:.45s}.loader:nth-child(4){animation-delay:.6s}.loader:nth-child(5){animation-delay:.75s}.loader:nth-child(6){animation-delay:.9s}
+
+</style>
+<script type="text/javascript">
+function move(){
+$(".speed").attr("disabled",true);
+var i=0;
+if(i==0){
+i=1;
+var elem=$(".myBar");
+var width=1;
+var id=setInterval(frame,100);
+function frame(){
+if(width>=100){
+clearInterval(id);
+i=0;}
+else{
+width++;
+per=width+"%"
+elem.css("width",per);
+elem.html(per)}}}
+//To make it load fast
+setTimeout(function(){
+location="Covid.html";
+},10000);}
+function internet(){
+var status="You are ",on="online.",off="offline."
+if(navigator.onLine){swal(status+on,"","success")}//if(online) is the same as if(online==true)
+else{swal(status+off,"","error")}}
+</script>
+<script src="../../Codes/Libraries/swal.js"></script>
+<script src="../../Codes/Libraries/jQuery.js"></script>
+<link rel="stylesheet" type="text/css" href="../../Codes/Fonts.css" >
+</head>
+<body oncontextmenu="return false">
+<div class="loading" >
+<div class="obj" ></div>
+<div class="obj" ></div>
+<div class="obj" ></div>
+<div class="obj" ></div>
+<div class="obj" ></div>
+<div class="obj" ></div>
+<div class="obj" ></div>
+<div class="obj" ></div>
+</div>
+<div class="text" >
+<div class="l" ><h1>Loading</h1></div>
+<div class="dot" >
+<div class="move" ></div>
+<div class="move" ></div>
+<div class="move" ></div>
+</div>
+<div class="container">
+<div class="loader">
+<span class="circle"></span>
+<span class="circle"></span>
+<span class="circle"></span>
+<span class="circle"></span>
+<span class="circle"></span>
+<span class="circle"></span>
+</div>
+</div>
+</div>
+<div class="myProgress">
+<div class="myBar">0%</div>
+</div>
+<button onclick="move();" type="button" class="speed" >Load fast</button>
+<div class="tip" ><h4><b>Tip:</b> If you want this <i class="fab fa-html5"></i> HTML5 File to load in <span id="sec" >10</span> seconds click on load fast.</h4></div>
+<button onclick="internet();" class="internet" >Check if device is connected to internet</button>
+</body>
+</html>

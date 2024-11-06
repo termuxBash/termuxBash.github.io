@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>App Settings</title>
+<script src="../../Codes/Libraries/jQuery.js"></script>
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+var octokit=new Octokit({auth: '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'})
+
+async function getSetttings(){
+const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/settings.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+recive(atob(getterIn.data.content))
+}getSetttings()
+window.addEventListener('online', () => getSetttings());
+window.addEventListener('online', () => console.log('Became online'));
+window.addEventListener('offline', () => console.log('Became offline'));
+
+function recive(jsonGet){
+var data=JSON.parse(jsonGet)
+    document.getElementById("updateTime").innerText="Last updated at: "+data.LastUpdate;
+    document.getElementById("locaterMac").checked=data.locate.mac;
+    document.getElementById("locaterDelay").value=convertMinsToHrsMins(data.locate.delayMins);
+var day=document.getElementsByName("days")
+    for(var i=0;i<day.length;i++){
+      if(data.locate.days.includes(day[i].value)) day[i].checked=true
+    }
+    
+    document.getElementById("sshMac").checked=data.ssh.mac;
+    document.getElementById("sshOnTime").value=data.ssh.OnTime;
+}
+
+const convertMinsToHrsMins = (mins) => {
+  let h = Math.floor(mins / 60);
+  let m = mins % 60;
+  h = h < 10 ? '0' + h : h; // (or alternatively) h = String(h).padStart(2, '0')
+  m = m < 10 ? '0' + m : m; // (or alternatively) m = String(m).padStart(2, '0')
+  return `${h}:${m}`;
+}
+function getCheckedBoxes(chkboxName) {
+  var checkboxes = document.getElementsByName(chkboxName);
+  var checkboxesChecked = [];
+  // loop over them all
+  for (var i=0; i<checkboxes.length; i++) {
+     // And stick the checked ones onto an array...
+     if (checkboxes[i].checked) {
+        checkboxesChecked.push(checkboxes[i].value);
+     }
+  }
+  // Return the array if it is non-empty, or null
+  return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+}
+
+async function setSettings(jsonString){
+const shaget= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/settings.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+try{
+await octokit.request('PUT /repos/termuxBash/App-Settings/contents/files/settings.json', {
+message: 'CHANGE OF SETTINGS upload',
+committer: {
+name: 'Settings App',
+email: 'appSettings@github.com'
+},
+content: btoa(jsonString),
+sha: shaget.data.sha,
+headers: {'X-GitHub-Api-Version': '2022-11-28'}
+})}
+catch(e){alert("STOP SPAMMING THE BUTTON!!\n\n\n"+e)}
+}
+
+function send(){
+
+var a=document.getElementById("locaterDelay").value.split(":")
+var locate = new Object();
+    locate.mac=document.getElementById("locaterMac").checked
+    locate.delayMins=(+a[0]) * 60 + (+a[1]);
+    locate.days=getCheckedBoxes("days")
+var ssh = new Object();
+    ssh.mac=document.getElementById("sshMac").checked
+    ssh.OnTime=document.getElementById("sshOnTime").value
+var obj = new Object();
+   obj.locate = locate;
+   obj.ssh  = ssh;
+   obj.LastUpdate = new Date().toLocaleString();
+   var jsonString= JSON.stringify(obj);
+   document.getElementById("outputJSON").innerHTML=jsonString
+   setSettings(jsonString)
+}
+document.getElementById("sender").addEventListener("click", send);
+</script>
+<style type="text/css">
+div{
+font-size:larger;}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:#ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider{background-color:blue;}
+input:focus + .slider{box-shadow:0 0 1px #2196F3;}
+input:checked + .slider:before{transform:translateX(26px);}
+
+/* Rounded sliders */
+.slider.round{border-radius:34px;}
+.slider.round:before{border-radius:50%;}
+
+/* Hide the browser's default checkbox */
+label [type="checkbox"],[type="radio"]{
+position:relative;
+padding-left:35px;
+margin-bottom:12px;
+opacity:0;
+cursor:pointer;
+height:0;
+width:0;}
+/* Create a custom checkbox */
+.checkmark{
+position: absolute;
+height:25px;
+width:25px;
+background-color:lightgray;
+border-radius:20%;}
+@media screen and (orientation:landscape){
+.checkmark{background-color:lightyellow;}}
+/* On mouse-over, add a grey background color */
+label:hover [type="checkbox"]~.checkmark{background-color:gray;}
+/* When the checkbox is checked, add a blue background */
+label [type="checkbox"]:checked~.checkmark{background-color:blue;}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after{
+content:"";
+position:absolute;
+display:none;}
+/* Show the checkmark when checked */
+label [type="checkbox"]:checked~.checkmark:after{display:block;}
+/* Style the checkmark/indicator */
+label .checkmark:after{
+left:9px;
+top:5px;
+width:5px;
+height:10px;
+border:solid white;
+border-width:0 3px 3px 0;
+transform:rotate(45deg);}
+/* Create a custom radio button */
+.radiomark{border-radius:50%;}
+/* On mouse-over, add a grey background color */
+label:hover [type="radio"]~.checkmark{background-color:gray;}
+/* When the checkbox is checked, add a blue background */
+label [type="radio"]:checked~.checkmark{background-color:blue;}
+/* Show the indicator (dot/circle) when checked */
+label [type="radio"]:checked~.checkmark:after{display:block;}
+/* Style the indicator (dot/circle) */
+.radio .radiomark:after{
+top:6px;
+left:6px;
+width:10px;
+height:10px;
+border-radius:50%;
+background:white;}
+
+
+
+#sender {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#sender span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#sender span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#sender:hover span {
+  padding-right: 25px;
+}
+
+#sender:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+#sender:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
+</head>
+<body>
+<h1>App Settings</h1>
+<span id="updateTime" style="float:right;color:red;" ></span>
+<div>
+Locater Mac:
+<label class="switch">
+  <input type="checkbox" id="locaterMac" checked="checked" >
+  <span class="slider round"></span>
+</label><br>
+Locater Mac Delay Hours and Mins:
+<input type="time" id="locaterDelay" value="02:00" ><br>
+Locater Mac Run Days: Not used<br>
+<label>
+<input type="checkbox" name="days" value="mon" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monday
+</label><br>
+<label><input type="checkbox" name="days" value="tue" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tuesday
+</label><br>
+<label>
+<input type="checkbox" name="days" value="wed" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wednesday
+</label><br>
+<label>
+<input type="checkbox" name="days" value="thu" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thursday
+</label><br>
+<label>
+<input type="checkbox" name="days" value="fri" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friday
+</label><br>
+<label>
+<input type="checkbox" name="days" value="sat" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saturday
+</label><br>`
+<label>
+<input type="checkbox" name="days" value="sun" ><span class="checkmark" ></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunday
+</label>
+<br><hr>
+SSH Mac:
+<label class="switch">
+  <input type="checkbox" id="sshMac" checked="checked" >
+  <span class="slider round"></span>
+</label><br>
+On time: not used
+<input type="time" id="sshOnTime" value="18:00" >
+<hr>
+<div id="sender"><span>Send settings</span></div>
+</div>
+<p id="outputJSON" ></p>
+<script src="../../Codes/Libraries/eruda.js" async onload="eruda.init()"></script>
+</body>
+</html>
