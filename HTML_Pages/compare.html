@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Comparer</title>
+<style type="text/css">
+body{background-color:black;}
+#num{
+width:5em;}
+#one,#two{
+background-color:black;
+color:white;
+width:5%;}
+.container{display:flex;}
+.li1,.li2{
+padding:3px 0px 3px 0px;}
+.sel{
+border:solid 3px red;
+padding:0px 0px 0px 0px;}
+.box{
+position:fixed;
+top:10%;
+right:10%;
+background-color:gray;
+color:white;
+border-radius:10%;
+height:100px;
+width:100px;
+font-size:x-large;
+text-align:center;
+box-shadow:10px 10px 10px white,20px 20px 10px blue,30px 30px 10px orange,40px 40px 10px green;
+transition-duration:1s;}
+.box:hover{
+box-shadow:-10px -10px white,-20px -20px blue,-30px -30px orange,-40px -40px green;
+}
+</style>
+</head>
+<body>
+<form onsubmit="event.preventDefault(); calc()">
+<input id="opt1" placeholder="Options" value="A,B,C,D" >
+<input id="opt2" placeholder="Options" value="A,B,C,D" >
+<input id="num" placeholder="n(S)" value="100" >
+<input type="submit" value="Calculate" >
+</form>
+<div class="container" >
+<ol id="one" ></ol>
+<ol id="two" ></ol>
+</div>
+<div class="box" onclick="count();">
+<span id="score" >0</span>
+<hr>
+<span id="total" >0</span>
+</div>
+<script type="text/javascript">
+var num,opt1,opt2;
+var one=document.getElementById("one"),
+two=document.getElementById("two");
+
+function calc(){
+	opt1=document.getElementById("opt1").value.split(',')
+	opt2=document.getElementById("opt2").value.split(',')
+	num=document.getElementById("num").value;
+	one.innerHTML="";two.innerHTML="";
+	
+	for(i=0;i<num;i++){
+		var index1=Math.floor(Math.random()*(opt1.length)),
+		index2=Math.floor(Math.random()*(opt1.length));
+		var set1=opt1[index1],set2=opt2[index2];
+		var span1=document.createElement("li");
+		span1.classList.add("li1")
+		span1.innerText=set1;
+		var span2=document.createElement("li");
+		span2.classList.add("li2")
+		span2.innerText=set2;
+		one.appendChild(span1)
+		two.appendChild(span2)
+		}
+	check()
+	}
+calc()
+function compare(wordOne, wordTwo, n) {
+    return wordOne[n].innerText === wordTwo[n].innerText;
+}
+function check(){
+	var li1=document.getElementsByClassName("li1"),
+	li2=document.getElementsByClassName("li2");
+	
+	for(i=0;i<=num;i++){
+		if(compare(li1,li2,i)){
+		li1[i].classList.add("sel")
+		li2[i].classList.add("sel")}
+		}
+	}
+
+function count(){
+	document.getElementById("score").innerText=document.querySelectorAll("#one .sel").length;
+	document.getElementById("total").innerText=document.querySelectorAll("#one .li1").length;
+	}
+
+</script>
+</body>
+</html>
