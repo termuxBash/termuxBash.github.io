@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas</title>
+<style type="text/css">
+body{
+overscroll-behavior: contain;
+background-color:black;}
+#cvs{
+border:4px solid blue;}
+#reset{
+display:none;
+position:absolute;
+top:450px;
+right:300px;}
+</style>
+</head>
+<body>
+<canvas id="cvs" height="900" width="600"
+ontouchstart="accelerate(-0.005)" ontouchend="accelerate(0.003)">
+The canvas element is not supported by  this browser</canvas>
+<button id="reset" onclick="location.href = location.href;">Restart</button>
+<script type="text/javascript" src="file:///sdcard/anWriter/HTML_Pages/Canvas/canvas.js" async></script>
+</body>
+<script src="../../Codes/Libraries/eruda.js" async onload="eruda.init();"></script>
+</html>
