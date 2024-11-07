@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>calc</title>
+<style type="text/css">
+body{
+color:white;
+font-size:1.2em;
+background-color:blak;}
+.key{
+padding:5%;
+height:20px;
+width:25px;
+border-color:white;
+border-width:5px;
+border-style:solid;
+border-radius:10px;
+background-color:blue;
+margin:5px;
+transition-duration:.5s;}
+.key:hover{
+background-color:red;
+flex-grow:2;
+font-size:1.7em;
+box-shadow:white 3px 5px 5px;}
+.calc{
+background-color:black;
+position:relative;
+width:500px;
+display:flex;
+flex-direction:row;
+flex-wrap:wrap;}
+.eq{width:339px;}
+.display{
+overflow:auto;
+font-size:2rem;
+background-color:gray;
+border-radius:10px;
+height:100px;
+width:550px;}
+</style>
+</head>
+<body>
+<div class="display" ></div>
+<div class="calc" >
+<div class="key" onclick="type(this);">7</div>
+<div class="key" onclick="type(this);">8</div>
+<div class="key" onclick="type(this);">9</div>
+<div class="key" onclick="item.innerText=item.innerText.slice(0,-1);">Del</div>
+<div class="key" onclick="item.innerText='';">AC</div>
+<div class="key" onclick="type(this);">4</div>
+<div class="key" onclick="type(this);">5</div>
+<div class="key" onclick="type(this);">6</div>
+<div class="key mul" onclick="type(this);">*</div>
+<div class="key div" onclick="type(this);">/</div>
+<div class="key one" onclick="type(this);">1</div>
+<div class="key" onclick="type(this);">2</div>
+<div class="key" onclick="type(this);">3</div>
+<div class="key" onclick="type(this);">+</div>
+<div class="key" onclick="type(this);">-</div>
+<div class="key" onclick="type(this);">0</div>
+<div class="key" onclick="type(this);">.</div>
+<div class="key" onclick="pow();">x<sup>y</sup></div>
+<div class="key" onclick="sqroot();">y√x</div>
+<div class="key" onclick="item.innerText+=prompt();">Type</div>
+<div class="key" onclick="alert(item.innerText);">y√x</div>
+<div class="key" onclick="eval(prompt(this.innerText));">debugs</div>
+<div class="key eq" onclick="equals()">=</div>
+</div>
+<script type="text/javascript">
+var item=document.getElementsByClassName("display")[0],mul=document.getElementsByClassName('mul')[0];
+type=(val)=>{item.innerText+=val.innerText;}
+function equals(){
+var win;item.innerText=eval(item.innerText);
+if(item.innerText=="NaN"){item.innerText="0/0 Wow?";
+for(var x=1;x>0;x++){window.open("javascript:alert('Told you not to "+x+".');","","width=50px").close();}}
+//while(true){window.location.reload(true);}
+}
+function sqroot(){
+var vals=prompt("Enter the first number,base,x(that will be rooted to)");
+if(vals==""||vals==null){alert("Exiting...")}
+else{var power=prompt(vals+" is nth to?,y");
+if(vals==""||vals==null){alert("Exiting...")}
+else{item.innerText+="Math.pow("+vals+",1/"+power+")"}}}
+function pow(){var vals=prompt("Enter the first number,base,x(that will be raised to)");
+if(vals==""||vals==null){alert("Exiting...")}
+else{var power=prompt(vals+" is raised to?,y");
+if(vals==""||vals==null){alert("Exiting...")}
+else{item.innerText+="Math.pow("+vals+","+power+")"}}}
+var win=window.open("javascript:alert('Dont divide by 0');");
+setTimeout(function(){win.close()},5000)
+</script>
+</body>
+</html>
