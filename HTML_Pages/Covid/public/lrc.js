@@ -375,7 +375,7 @@ txt=lrc[index].texts;}
 else{txt=lrc[index].text;}
 songID=index;
 bash("exit,menu");}
-else if(name == "") {console.log("Available songs: ") 
+else if(name == "") {console.log("Available songs: <br>Type in this format .m followed by Song Id eg. '.mwto'") 
  console.log(lrc.map(lrc => lrc.id))}
 else console.error("Sorry! The requested song doesn't exist.");
 }

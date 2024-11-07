@@ -443,7 +443,7 @@ if(vals=='exit'){debugClose()}
 else if(vals=="menu"){$(".menu").click();}
 else if(vals=="heart"){$(".heartBox").click();}
 else if(vals=="dark"){$(".slider").click();}
-else if(vals=="mango"){manSopen()}
+else if(vals=="mango"){(lock==unll) ? manSopen() : null}
 else if(vals.substring(0,2)=="l="){
 eval(val);
 lock=l;
@@ -472,7 +472,7 @@ else{$("#title").html(val.slice(6))}}
 else if(vals=="vscode") window.open("https://vscode.dev","_blank");
 else if(vals=="cls"){$(".console").html("");console.clear();console.log("Console was cleared!")}
 else if(vals=="loader"){alert(history.back())}
-else if(vals=="whoami") (lock==unll) ? alert(web.decrypt("YWdzaGFycDIzQGdtYWlsLmNvbQ==")+' '+web.decrypt("dGVybWluQDE=")) : dies(),console.log("A dunce"),debug();
+else if(vals=="whoami") (lock==unll) ? alert(web.decrypt("YWdzaGFycDIzQGdtYWlsLmNvbQ==")+' '+web.decrypt("SSBsb3ZlIGNvdmlk")) : dies(),console.log("A dunce"),debug();
 else if(vals=="destroy" || vals=="thanosnap"){
 console.log("Starting destruction!...");alert("Destruction started- interval .5s");
 setInterval(function(){delElem();},500);}
