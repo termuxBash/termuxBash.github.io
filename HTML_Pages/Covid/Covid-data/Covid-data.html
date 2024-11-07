@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>COVID-19 form</title>
+<!--External CSS,JS and icons here-->
+<script src="../../../Codes/default.js"></script>
+<script src="../../../Codes/Libraries/jQuery.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../Codes/Fonts.css" >
+<!--External CSS,JS and icons files ends here-->
+<!--My own CSS and JS files here-->
+<link rel="stylesheet" href="Covid-data.css" >
+<script type="text/javascript" src="Covid-data.js" ></script>
+<!--My own CSS and JS files ends here-->
+</head>
+<body onload="chkData()">
+<h1 class="name" >Hi <span id="name" ></span> the data which you have submitted is below</h1>
+<div class="mainForm" >
+<fieldset>
+<legend>Your favorite suite of cards is:</legend>
+<label for="s" class="radio" >
+<input type="radio" name="cards" id="s" checked="checked" value="spades" >&spades;
+<span class="checkmark radiomark" ></span></label>
+<label for="h" class="radio" >
+<input type="radio" name="cards" id="h" value="hearts" >&hearts;
+<span class="checkmark radiomark" ></span></label>
+<label for="c" class="radio" >
+<input type="radio" name="cards" id="c" value="clubs" >&clubs;
+<span class="checkmark radiomark" ></span></label>
+<label for="d" class="radio" >
+<input type="radio" name="cards" id="d" value="diamonds" >&diams;
+<span class="checkmark radiomark" ></span></label>
+</fieldset>
+<h2 class="covid" ></h2>
+<fieldset>
+<legend>Symptoms of covid you have:</legend>
+<label for="box1">
+<input id="box1" type="checkbox" name="symptoms" value="shortness" >
+<span class="checkmark" ></span>shortness of breath</label>
+<label for="box2">
+<input id="box2" type="checkbox" name="symptoms" value="dry" >
+<span class="checkmark" ></span>dry cough</label>
+<label for="box3">
+<input id="box3" type="checkbox" name="symptoms" value="fever" >
+<span class="checkmark" ></span>fever</label>
+<label for="box4">
+<input id="bo4" type="checkbox" name="symptoms" value="none" >
+<span class="checkmark" ></span>none</label>
+</fieldset>
+<p>Date and time you have noticed it: <span id="time" ></span></p>
+<p>Queries: <span id="queries" ></span></p>
+<p>How you feel: <span id="feel" ></span></p>
+<p>Your favorite fruit: <span id="fruits" ></span></p>
+<p>Your favorite color: <span id="color" >Nice choice!</span></p>
+</div>
+<div class="formFeedback" >
+<p>Your email address here:<a href="#!" id="email" >No email address entered</a></p>
+<p>Your suggestions for improvement of the website:<span id="suggest" ></span></p>
+<p>You <span id="like" >didn't comment about</span> this website!</p>
+<p>Your Feedback: <span id="feedback" ></span></p>
+</div>
+<button onclick="noBack()" class="bean" >Next<i class="fas fa-arrow-right" ></i></button>
+<footer>
+<div class="man" onclick="this.classList.toggle('man-on');">
+<div class="balls" >
+<div class="ball" ></div>
+<div class="ball" ></div>
+</div>
+<div class="man-head" ></div>
+<div class="man-hand" >
+<div class="hand" ></div>
+<div class="hand" ></div>
+</div>
+<div class="man-body" ></div>
+<div class="man-leg" >
+<div class="leg" ></div>
+<div class="leg" ></div>
+</div>
+</div>
+<div class="man2" onclick="this.classList.toggle('man-on');">
+<div class="balls" >
+<div class="ball" ></div>
+<div class="ball" ></div>
+</div>
+<div class="man-head" ></div>
+<div class="man-hand" >
+<div class="hand" ></div>
+<div class="hand" ></div>
+</div>
+<div class="man-body" ></div>
+<div class="man-leg" >
+<div class="leg" ></div>
+<div class="leg" ></div>
+</div>
+</div>
+<div class="finish-line" onclick="this.classList.toggle('finished');">Finish line</div>
+<div class="wer">
+<a href="https://https://cutt.ly/cvJSezS" target="blank" id="bottom" >© aaron.com®<b>™</b></a>
+</div>
+</footer>
+</body>
+</html>
