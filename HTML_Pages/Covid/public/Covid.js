@@ -193,13 +193,12 @@ clearInterval(timers),timers=setInterval(timerFunc,1000),x=60;
 clearTimeout(timeout),setTimeout(timer,60000)}
 else{
 swal("You are safe!","The form data wasn't deleted!","success");
-navigator.vibrate([75,225,75,75,75,75,75,225,75,225,75,225,75,75,75,225,75,225,75,75,75,75,75,225,75,225,75,225,75,75,75,225,75,225,75,75,75,75,75,225,75,225,150,150,75,75,75,225,75,375,75,75,75,75,75,225,75,225,75,225,75,75,75,225,75,225,75,75,75,75,75,225,75,225,75,225,75,75,75,225,75,225,75,75,75,75,150,150]);}}
+}}
 function valid(){
 move(),save();
 }
 function move(){
 var i=0;
-navigator.vibrate([500,500,500,1000,500,500,500]);
 if(i==0){
 i=1;
 var elem=$(".myBar");
