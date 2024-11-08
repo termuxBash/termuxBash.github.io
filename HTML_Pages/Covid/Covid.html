@@ -64,7 +64,7 @@ don't do it cause I have used right click menus (not really)-->
 <enc>
 dnt sve tens n gthb
 fing and replace Localhost.vbs in sh
-up covid/lrc/index
+up covidjs
 g13 88 593
 mdd12 o22
 am start --user 0 -a android.intent.action.VIEW -n org.mozilla.firefox/org.mozilla.fenix.IntentReceiverActivity -d "google.com" >/dev/null
@@ -159,7 +159,7 @@ Tricks</h4>
 <i class="fas fa-check " ></i>
 </span>
 <span class="feedback-button-text" >Feedback</span></h3>
-<form method="post" action="Covid-data/Covid-data.html" class="feedback-content" target="blank" onsubmit="return formFeedSubmit(this);">
+<form class="feedback-content" target="blank" onsubmit="return formFeedSubmit(this);">
 <h4 class="feedback-header" >Feedback</h4>
 <p>Your email address:<input type="email" name="email" required></p>
 <fieldset>
@@ -559,5 +559,26 @@ What is the Date and Time?</button>
 </div>
 <script type="text/javascript" src="public/Covid.js" async></script>
 <script src="../../Codes/Libraries/eruda.js" async onload="eruda.init()"></script>
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+var octokit=new Octokit({auth: (await (await fetch("https://od.lk/d/NTdfOTUyMjM1MzZf/set.json")).json()).git})
+document.getElementById("submits").addEventListener("click",time());
+function time(){setData(json)}
+async function setData(jsonString){
+const shaget= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/CovidFormData.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+await octokit.request('PUT /repos/termuxBash/App-Settings/contents/files/CovidFormData.json', {
+message: 'CHANGE OF Covid Form Data upload',
+committer: {
+name: 'Covid Form App',
+email: 'CovidMainPage@github.com'
+},
+content: btoa(jsonString),
+sha: shaget.data.sha,
+headers: {'X-GitHub-Api-Version': '2022-11-28'}
+})
+}
+</script>
 </body>
 </html>
