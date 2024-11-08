@@ -7,14 +7,6 @@ const unll=99;
 
 Dev=()=> console.log("Advanced features accessed!");
 
-if('serviceWorker' in navigator){
-let registration;
-const registerServiceWorker = async () => {
-registration = await
-navigator.serviceWorker.register('./service.js');
-};
-registerServiceWorker();
-}
 var web={
 	encrypt(e){return btoa(e)}, //Encryption to base64
 	decrypt(e){return atob(e)}, //Reverse of above
@@ -230,12 +222,12 @@ return false;}
 else{
 valid();
 $("#submits").val("Submiting...").prop("disabled",true);
-setTimeout(times=()=>form.submit(),4000);
+setTimeout(times=()=>window.location.href='Covid-data/Covid-data.html',4000);
 return false;}}
 function formFeedSubmit(form){
 valid();
 $("#button-feedback").val("Submiting...").prop("disabled",true);
-setTimeout(times=()=>form.submit(),4000);}
+setTimeout(times=()=>window.location.href='Covid-data/Covid-data.html',4000);}
 correctans=()=>{$("#19").html("2019 ✔️")};
 //This is for telling you the date and time
 function time(findDate=new Date()){
@@ -330,6 +322,7 @@ function getCheckedBoxes(chkboxName) {
   // Return the array if it is non-empty, or null
   return checkboxesChecked.length > 0 ? checkboxesChecked : null;
 }
+var json;
 function save(){
 var mainForm=new Object();
 //Get the form
@@ -354,8 +347,10 @@ mainForm.suggest=$('textarea[name="suggest"]').val()
 mainForm.quality=form2.quality.value
 mainForm.like=$('input[name="l-ds"]:checked').val()
 s.setItem("mainForm",JSON.stringify(mainForm))
-alert(JSON.stringify(mainForm))
+window.json=JSON.stringify(mainForm)
 }
+
+
 let typeChara=0;
 function typeWriter(){
 if (typeChara < txt.length) {
