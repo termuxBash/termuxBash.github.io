@@ -10,6 +10,7 @@ function chkData(){
 if(sessionStorage.getItem("data")=="true"){type();}
 else{swal("No Data to display","No data was sent by the main website.","warning");}}
 function type(mainForm){
+mainForm=JSON.parse(sessionStorage.getItem("mainForm"))
 const item=["num-value","time","queries","feel","fruit","color","email","suggest","quality","like"];
 $("#name").html(mainForm.Name),
 $('input[name="cards"][value="'+mainForm.cards+'"]').prop("checked",true),
