@@ -214,7 +214,7 @@ width++;
 per=width+"%"
 elem.css("width",per);
 elem.html(per)}}}}
-function formSubmit(form){
+function formSubmit(){
 checkeds=$("input[type=checkbox]:checked").length;
 if(!checkeds){
 alert("You must check at least one checkbox."),console.log("Checkbox invalid");
@@ -224,7 +224,7 @@ valid();
 $("#submits").val("Submiting...").prop("disabled",true);
 setTimeout(times=()=>window.location.href='Covid-data/Covid-data.html',4000);
 return false;}}
-function formFeedSubmit(form){
+function formFeedSubmit(){
 valid();
 $("#button-feedback").val("Submiting...").prop("disabled",true);
 setTimeout(times=()=>window.location.href='Covid-data/Covid-data.html',4000);}
