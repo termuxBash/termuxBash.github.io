@@ -1,8 +1,7 @@
 function fixSong(){
 var audio=document.getElementById("mtAudio");
 var audioSrc=audio.src;
-audioSrc="https://github.com/termuxBash/App-settings/raw/refs/heads/main/music/" + lrc[songID].songB + ".mp3";
-//remember dl.sndup in lrc.save
+audioSrc="https://dl.sndup.net/" + lrc[songID].songB + ".mp3";
 mtAudio.setAttribute('src',audioSrc);
 console.log(audioSrc);
 document.getElementById("mtAudio").play()
@@ -11,13 +10,13 @@ document.getElementById("mtAudio").play()
 const lrc = [
 {id:"def",
 song:"tunes/main",
-songB:"main",
+songB:"mhz7/type",
 text:"This website is about Covid-19 virus."
 },
 
 {id:"boh",
 song:"English/Queen - Bohemian Rhapsody",
-songB:"Queen - Bohemian Rhapsody",
+songB:"5h9m/Queen - Bohemian Rhapsody",
 text:`Is this the real life?
 Is this just fantasy?
 Caught in a landside,
@@ -77,7 +76,7 @@ Any way the wind blows...`
 
 {id:"sama",
 song:"tunes/in",
-songB:"in",
+songB:"skcs/intro",
 texts:"Not provided",
 text:`
 Douka PLEASE
@@ -100,7 +99,7 @@ Munega chotto-wo MY SECRET
 437`},
 {id:"ks",
 song:"tunes/ks",
-songB:"ks",
+songB:"yk3h/ks",
 texts:"Not provided",
 text:`
 Onna no-ko hajime-mashita
@@ -131,7 +130,7 @@ Kamisama, hajimemashita
 480`},
 {id:"ks2",
 song:"tunes/ks2",
-songB:"ks2",
+songB:"dwy7/ks2",
 texts:"None",
 text:`
 Ittai kono yo wa dou natte iru no ka na? 
@@ -155,7 +154,7 @@ Kamisama watashi ga anata no kamisama mitai ne
 },
 {id:"ksone",
 song:"tunes/ksone",
-songB:"ksone",
+songB:"yv34y/ksone",
 texts:"Not provided",
 text:`
 Ah-ah-ah-ah
@@ -196,7 +195,7 @@ Good-bye (Ah-ah-ah)
 },
 {id:"tk",
 song:"tunes/tk",
-songB:"tk",
+songB:"xhsc/tk",
 texts:"Not provided",
 text:`
 Ato dore kurai no kyori-o-tsuki-e arui-tara
@@ -220,7 +219,7 @@ Kimi no iru keshiki ga koina
 949`},
 {id:"tk2",
 song:"tunes/tk2",
-songB:"tk2",
+songB:"h8pk/tk2",
 texts:"Not provided",
 text:`
 Owari o matsu setsunani kimi wa
@@ -238,7 +237,7 @@ Shinjite miyou
 `},
 {id:"death",
 song:"tunes/dn",
-songB:"dn",
+songB:"c42n/dnp",
 texts:"Not provided",
 text:`
 The World by Nightmare
@@ -259,7 +258,7 @@ Hikari kagayaku sekai wo
 `},
 {id:"oto",
 song:"tunes/oto",
-songB:"oto",
+songB:"x2pnf/oto",
 texts:"Not provided.",
 text:`
 Moshimoshi kikoemasu ka?
@@ -284,19 +283,19 @@ Ano hi nara aa ii noni naa
 `},
 {id:"wto",
 song:"english/Rossini-William Tell Overture-Final",
-songB:"Rossini-William Tell Overture-Final",
+songB:"hqtt/Rossini-William%20Tell%20Overture-Final",
 text:`Rossini: William Tell Overture!`},
 {id:"e",
 song:"tunes/rushe",
-songB:"rushe",
+songB:"z6fq/rushe.mp3", //This is not a mistake
 text:`The rush E...`},
 {id:"die",
 song:"tunes/di",
-songB:"di",
+songB:"d5qn/di",
 text:"Dies Irae (Day of Wrath)"},
 {id:"carol",
 song:"christmas/Carol of the bells",
-songB:"Carol of the bells",
+songB:"",
 text:`
 Hark how the bells
 Sweet silver bells
@@ -363,7 +362,7 @@ Ding dong ding dong
 `},
 {id:"cr",
 song:"english/country roads",
-songB:"country roads",
+songB:"",
 text:`
 Almost Heaven, West Virginia
 Blue Ridge Mountains, Shenandoah River
@@ -399,105 +398,6 @@ Take me home, country roads
 
 Take me home, country roads
 Take me home, (down) country roads - 2x
-`},
-{id:"winit",
-song:"english/Calculus",
-songB:"Calculus",
-text:`
-Is this x defined?
-Is f continuous?
-How do you find out?
-You can use the limit process.
-
-Approach from both sides,
-The left and the right and meet.
-Im a just a limit, defined analytically
-
-Functions continuous,
-Theres no holes,
-No sharp points,
-Or asymptotes.
-
-Any way this graph goes
-It is differentiable for me for me.
-
-All year, in Calculus
-Weve learned so many things
-About which we are going to sing
-
-We can find derivatives
-And integrals
-And the area enclosed between two curves.
-
-Y prime oooh
-Is the derivative of y
-Y equals x to the n, dy/dx
-Equals n times x
-To the n-1.
-
-Other applications
-Of derivatives apply
-If y is divided or multiplied
-You use the quotient
-And product rules
-
-And dont you forget
-To do the dance
-
-Also oooh (dont forget the chain rule)
-Before you are done,
-You gotta remember to multiply by the chain
-
-(Instrumental solo)
-
-I need to find the area under a curve
-Integrate! Integrate!  You can use the integration
-
-Raise exponent by one multiply the reciprocal
-Plus a constant
-Plus a constant
-Add a constant
-Add a constant
-Add a constant labeled C
-(Labeled C-ee-ee-ee-ee)
-
-Im just a constant
-Nobody loves me.
-Hes just a constant
-Might as well just call it C 
-Never forget to add the constant C
-
-Can you find the area between f and g
-In-te-grate f and then integrate g
-(then subtract)
-To revolve around the y-axis
-(integrate)
-outer radius squared minus inner radius squared
-(multiplied)
-multiplied by pi
-(multiply)
-
-Multiply the integral by pi!
-
-Pi tastes real good with whipped cream!
-
-Mama-Mia, Mama-Mia
-Mama-Mia let me go.
-Pre-calculus did not help me to prepare for Calculus, for Calculus, help me! 
-
-So you think you can find out the limit of y?
-So you think youll find zero and have it defined
-Oh baby cant define that point baby
-Its undefined
-Goes to positive and negative infinity
-
-Oooh. Oooh yeah, oooh yeah.
-Differentiation
-Anyone can see
-Any mere equation
-It is differentiable for me.
-
-(Any way this graph goes)
 `}
 ];
 
