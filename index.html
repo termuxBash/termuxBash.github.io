@@ -8,6 +8,13 @@ font-size:20px;
 padding:20px;}
 li{
 padding:10px;}
+details{
+transition:height 1s ease;
+overflow:hidden;
+background-color:black;
+color:white;}
+details:not([open]){height:21px;}
+details[open]{height:100px;}
 </style>
 </head>
 <body>
@@ -16,8 +23,26 @@ padding:10px;}
 <li><a href="HTML_Pages/Covid/Covid-loading.html" >Covid-loading.html</a> Recomended</li>
 <li><a href="HTML_Pages/Covid/Covid.html" >Covid.html</a> Main page</li>
 <li><a href="HTML_Pages/Covid/calc.html" >calc.html</a> Calculator</li>
-<li><a href="HTML_Pages/Covid/nokai.html" ></a>☠️☠️☠️</li>
-<li><a href="HTML_Pages/Covid/AppSettings.html" ></a>☠️☠️️️☠️</li>
+<li><a href="HTML_Pages/Covid/nokai.html" >NokAi</a> ☠️☠️☠️</li>
+<li><a href="HTML_Pages/Covid/AppSettigs.html" onclick="alert('Not pubilcly availble yet')">App setting</a> ☠️☠️️️☠️</li>
+</ol>
+<h2>Additional info about the above pages</h2>
+<ol>
+<li><details>
+<summary>Covid-loading</summary>
+A loading page for the main site, just animations.</details></li>
+<li><details>
+<summary>Covid Main page</summary>
+Extra commands available,<br>
+.m for music <br>
+eg. .mboh for Bohemian Rhapsody</details></li>
+<li><details>
+<summary>A calculator</summary>
+Warning dont divide by 0,<br>
+And definitely not 0/0 👿</details></li>
+<li><details>
+<summary>Google Gemini powered AI</summary>
+Have lots of patience</details></li>
 </ol>
 </body>
 </html>
