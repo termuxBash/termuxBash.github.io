@@ -346,7 +346,6 @@ mainForm.suggest=$('textarea[name="suggest"]').val()
 mainForm.quality=form2.quality.value
 mainForm.like=$('input[name="l-ds"]:checked').val()
 s.setItem("mainForm",JSON.stringify(mainForm))
-window.json=JSON.stringify(mainForm)
 }
 
 
