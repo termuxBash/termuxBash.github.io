@@ -97,5 +97,17 @@
 <a href="https://https://cutt.ly/cvJSezS" target="blank" id="bottom" >© aaron.com®<b>™</b></a>
 </div>
 </footer>
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+var octokit=new Octokit({auth: (await (await fetch("https://od.lk/d/NTdfOTUyMjM1MzZf/set.json")).json()).git})
+
+async function getSetttings(){
+const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/CovidFormData.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+type(JSON.parse(atob(getterIn.data.content)))
+}getSetttings()
+</script>
+<script src="../../../Codes/Libraries/eruda.js" async onload="eruda.init()"></script>
 </body>
 </html>
