@@ -6,15 +6,70 @@
 ol {
 font-size:20px;
 padding:20px;}
+ul{list-style-type:disc;}
 li{
 padding:10px;}
-details{
-transition:height 1s ease;
-overflow:hidden;
-background-color:black;
-color:white;}
-details:not([open]){height:21px;}
-details[open]{height:100px;}
+summary::before {
+  content: "▶";
+  position: absolute;
+  top: 1rem;
+  left: 0.8rem;
+  transform: rotate(0);
+  transform-origin: center;
+  transition: 0.2s transform ease;
+}
+details[open] > summary:before {
+  transform: rotate(90deg);
+  transition: 0.45s transform ease;
+}
+details { overflow: hidden; }
+details summary {
+  position: relative;
+  z-index: 10;
+}
+@keyframes details-show {
+  from {
+    margin-bottom: -80%;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+details > *:not(summary) {
+  animation: details-show 500ms ease-in-out;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  color: transparent;
+  overflow: hidden;
+}
+details[open] > *:not(summary) { color: inherit; }
+details {
+  max-width: 500px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  background: white;
+}
+summary {
+  border: 4px solid transparent;
+  outline: none;
+  padding: 1rem;
+  display: block;
+  background: #666;
+  color: white;
+  padding-left: 2.2rem;
+  position: relative;
+  cursor: pointer;
+}
+details[open] summary,
+summary:hover {
+  color: #FFCA28;
+  background: #444;
+}
+.content{
+  padding: 10px;
+  border: 2px solid #888;
+  border-top: none;
+}
 </style>
 </head>
 <body>
@@ -31,24 +86,31 @@ details[open]{height:100px;}
 <ol>
 <li><details>
 <summary>Covid-loading</summary>
-A loading page for the main site, just animations.</details></li>
-<li><details>
+<div class="content" >A loading page for the main site, just animations.</div>
+</details></li>
+<li><details id="covid" >
 <summary>Covid Main page</summary>
-Extra commands available,<br>
+<div class="content" >Extra commands available,<br>
 .m for music <br>
-eg. .mboh for Bohemian Rhapsody</details></li>
+eg. .mboh for Bohemian Rhapsody
+<ul>
+<li><a href="HTML_Pages/Covid/Covid.html?cmd=dark,cls,.m,debug()" >Check Available songs</a></li>
+<li><a href="HTML_Pages/Covid/Covid.html?cmd=dark,cls,.mwinit" >Play Calculus Rhapsody --- Click Music Lyrics</a></li>
+<li><a href="HTML_Pages/Covid/Covid.html?cmd=dark,cls,heart" >See heart</a></li>
+</ul>
+</div></details></li>
 <li><details>
 <summary>A calculator</summary>
-Warning dont divide by 0,<br>
-And definitely not 0/0 👿</details></li>
+<div class="content" >Warning dont divide by 0,<br>
+And definitely not 0/0 👿</div></details></li>
 <li><details>
 <summary>Google Gemini powered AI</summary>
-Have lots of patience, since it doesn't work.
+<div class="content" >Have lots of patience, since it doesn't work.
 <a href="https://cutt.ly/nokai" >Alternate link</a>
-</details></li>
+</div></details></li>
 <li><details>
 <summary>Flappy something</summary>
-Flappy box</details></li>
+<div class="content" >Flappy box, Identify the cheat!</div></details></li>
 </ol>
 </body>
 </html>
