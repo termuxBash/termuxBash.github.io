@@ -159,3 +159,6 @@ function updateGameArea() {
 function accelerate(n) {
   myGamePiece.gravity = n;}
 startGame()
+const canvas = document.getElementById('cvs')
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight

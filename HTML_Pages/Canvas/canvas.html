@@ -16,7 +16,7 @@ right:300px;}
 </style>
 </head>
 <body>
-<canvas id="cvs" height="900" width="600"
+<canvas id="cvs" height="900" width="600" onload="this.width = window.innerWidth; this.height = window.innerHeight;"
 ontouchstart="accelerate(-0.005)" ontouchend="accelerate(0.003)">
 The canvas element is not supported by  this browser</canvas>
 <button id="reset" onclick="location.href = location.href;">Restart</button>
