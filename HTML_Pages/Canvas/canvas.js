@@ -113,6 +113,7 @@ function component(width, height, color, x, y, type) {
         if (this.y > rockbottom) {
             this.y = rockbottom;
             this.gravitySpeed = 0; 
+            return crash
         }
         if(this.x > rockwall ){
 	        this.x = rockwall; 
@@ -123,7 +124,7 @@ function component(width, height, color, x, y, type) {
 function updateGameArea() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
  for (i = 0; i < myObstacles.length; i += 1) {
-    if (myGamePiece.crashWith(myObstacles[i])) {
+    if (myGamePiece.crashWith(myObstacles[i]) || myGamePiece.hitBottom()) {
       myGameArea.stop();
 	  document.getElementById("reset").style.display="block";
      return;
@@ -160,5 +161,5 @@ function accelerate(n) {
   myGamePiece.gravity = n;}
 startGame()
 const canvas = document.getElementById('cvs')
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+canvas.width = window.innerWidth -50
+canvas.height = window.innerHeight-50
