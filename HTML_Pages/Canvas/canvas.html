@@ -17,7 +17,7 @@ right:300px;}
 </head>
 <body>
 <canvas id="cvs" height="900" width="600" onload="this.width = window.innerWidth; this.height = window.innerHeight;"
-ontouchstart="accelerate(-0.06)" ontouchend="accelerate(0.043)">
+ontouchstart="accelerate(-0.06)" ontouchend="accelerate(0.043)" onkeydown="accelerate(-0.06)" onkeyup="accelerate(0.043)">
 The canvas element is not supported by  this browser</canvas>
 <button id="reset" onclick="location.href = location.href;">Restart</button>
 <script type="text/javascript" src="canvas.js" async></script>
