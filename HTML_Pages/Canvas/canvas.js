@@ -38,6 +38,10 @@ var myGameArea = {
             myGameArea.x = e.touches[0].screenX;
             myGameArea.y = e.touches[0].screenY;
         })
+        window.addEventListener('move', function (e) {
+            myGameArea.x = e.touches[0].screenX;
+            myGameArea.y = e.touches[0].screenY;
+        })
     },
 	stop : function() {
 	clearInterval(this.interval);
@@ -113,7 +117,6 @@ function component(width, height, color, x, y, type) {
         if (this.y > rockbottom) {
             this.y = rockbottom;
             this.gravitySpeed = 0; 
-            return crash
         }
         if(this.x > rockwall ){
 	        this.x = rockwall; 
