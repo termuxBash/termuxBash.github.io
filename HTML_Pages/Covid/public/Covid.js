@@ -383,6 +383,7 @@ aboutAudio.volume=0.8
 mtAudioProgress.addEventListener("change", () => {
 const pct = mtAudioProgress.value / 100;
 mtAudio.currentTime = (mtAudio.duration || 0) * pct;
+mtAudio.play()
 });
 mtAudio.addEventListener("timeupdate", () => {
 if (!mouseDownOnSlider){
@@ -582,8 +583,12 @@ var myGameArea = {
     })
 	canvas.addEventListener('touchmove', function (e) {
 		myGameArea.x = e.touches[0].screenX;
-		myGameArea.y = e.touches[0].screenY;
+		myGameArea.y = e.touches[1].screenY;
 	})
+	canvas.addEventListener('mousemove', function (e) {
+		myGameArea.x = e.screenX;
+		myGameArea.y = e.screenY;
+})
   },
  clear : function() {
 	this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
