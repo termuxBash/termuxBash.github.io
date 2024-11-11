@@ -5,7 +5,7 @@
 <script src="../../Codes/Libraries/jQuery.js"></script>
 <script type="module">
 import { Octokit } from "https://esm.sh/@octokit/core";
-var octokit=new Octokit({auth: (await (await fetch("https://od.lk/d/NTdfOTUyMjM1MzZf/set.json")).json()).git})
+var octokit=new Octokit({auth: (await (await fetch("https://dev.opendrive.com/api/v1/download/file.json/NTdfOTUyMjM1MzZf")).json()).git})
 
 async function getSetttings(){
 const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/settings.json', {
