@@ -214,15 +214,10 @@ per=width+"%"
 elem.css("width",per);
 elem.html(per)}}}}
 function formSubmit(){
-checkeds=$("input[type=checkbox]:checked").length;
-if(!checkeds){
-alert("You must check at least one checkbox."),console.log("Checkbox invalid");
-return false;}
-else{
 valid();
 $("#submits").val("Submiting...").prop("disabled",true);
 setTimeout(times=()=>window.location.href='Covid-data/Covid-data.html',4000);
-return false;}}
+return false;}
 function formFeedSubmit(){
 valid();
 $("#button-feedback").val("Submiting...").prop("disabled",true);
@@ -345,7 +340,8 @@ mainForm.email=form2.email.value
 mainForm.suggest=$('textarea[name="suggest"]').val()
 mainForm.quality=form2.quality.value
 mainForm.like=$('input[name="l-ds"]:checked').val()
-s.setItem("mainForm",JSON.stringify(mainForm))
+//s.setItem("mainForm",JSON.stringify(mainForm))
+window.json=JSON.stringify(mainForm)
 }
 
 
