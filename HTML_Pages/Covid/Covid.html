@@ -62,13 +62,17 @@ don't do it cause I have used right click menus (not really)-->
 <button class="ans" type="button" onclick="correctans()">Show correct answer</button>
 </div>
 <enc>
-g13 92 597
+lost voic 1277 don
+voice distance 2584
+location, apoendtoprevjson
+up cohtml/js, formhtm/js/index
+g13 98 605
 mdd12 o22
 am start --user 0 -a android.intent.action.VIEW -n org.mozilla.firefox/org.mozilla.fenix.IntentReceiverActivity -d "google.com" >/dev/null
 gdown --folder -c 
 pl PL2Weoqeuo3HT54n41Ts-GDqLFxFoYT3SF
 pl PL2Weoqeuo3HRmztWbEvLrCW1lUqkfiTc8
-id 15 60
+id 15 90
 hcb 3421 1
 cd /storage/4E21-0000
 "C:\Program Files\WSL\wsl.exe"
@@ -396,55 +400,35 @@ What is the Date and Time?</button>
 <table>
 <caption><a href="https://cutt.ly/Fc4g2lW" id="n"  target="blank" >Number of covid cases in India.&nbsp;&hearts;</a></caption>
 <colgroup>
-<col class="1" >
-<col class="2" >
-<col class="3" >
-<col class="4" >
-<col class="5" >
-<col class="6" >
+<col class="1"><col class="2"><col class="3"><col class="4"><col class="5"><col class="6">
 </colgroup>
 <thead>
 <tr>
-<th scope="col" >cases</th>
-<th scope="col" >maharashtra</th>
-<th scope="col" >tamil nadu</th>
-<th scope="col" >delhi</th>
-<th scope="col" >goa</th>
-<th scope="col" >total cases in India</th>
+<th scope="col">cases</th>
+<th scope="col">maharashtra</th>
+<th scope="col">tamil nadu</th>
+<th scope="col">delhi</th>
+<th scope="col">goa</th>
+<th scope="col">total cases in India</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row" >active cases</th>
-<td>42,28,836</td>
-<td>10,66,329</td>
-<td>10,04,782</td>
-<td>75,184</td>
-<td>1,69,60,172</td>
+<th scope="row">active cases</th>
+<td>42,28,836</td><td>10,66,329</td><td>10,04,782</td><td>75,184</td><td>1,69,60,172</td>
 </tr>
 <tr>
 <th scope="row" >recovered</th>
-<td>34,68,610</td>
-<td>9,52,186</td>
-<td>8,97,804</td>
-<td>62,113</td>
-<td>1,40,85,110</td>
+<td>34,68,610</td><td>9,52,186</td><td>8,97,804</td><td>62,113</td><td>1,40,85,110</td>
 </tr>
 <tr>
 <th scope="row" >deaths</th>
-<td>63,928</td>
-<td>13,475</td>
-<td>13,898</td>
-<td>993</td>
-<td>1,92,311</td>
+<td>63,928</td><td>13,475</td><td>13,898</td><td>993</td><td>1,92,311</td>
 </tr>
 <tr>
 <th scope="row" >total</th>
-<td>123,327</td>
-<td>48,935</td>
-<td>39,079</td>
-<td>341</td>
-<td class="max" >17,313,163</td>
+<td>123,327</td><td>48,935</td><td>39,079</td><td>341</td>
+<td class="max">17,313,163</td>
 </tr>
 </tbody>
 </table>
@@ -556,5 +540,73 @@ What is the Date and Time?</button>
 </div>
 <script type="text/javascript" src="public/Covid.js" async></script>
 <script src="../../Codes/Libraries/eruda.js" async onload="eruda.init()"></script>
+
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+var octokit=new Octokit({auth: (await (await fetch("https://dev.opendrive.com/api/v1/download/file.json/NTdfOTUyMjM1MzZf")).json()).git})
+document.getElementById("submits").addEventListener("click",setData(window.json));
+function time(){setData(json);alert(json)}
+async function setData(jsonString){
+const shag= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/CovidFormData.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+await octokit.request('PUT /repos/termuxBash/App-Settings/contents/files/CovidFormData.json', {
+message: 'CHANGE OF Covid Form Data upload',
+committer: {
+name: 'Covid Form App',
+email: 'CovidMainPage@github.com'
+},
+content: btoa(jsonString),
+sha: shag.data.sha,
+headers: {'X-GitHub-Api-Version': '2022-11-28'}
+})
+}
+
+
+
+async function getSetttings(){
+const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/visitors.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+recive(atob(getterIn.data.content))
+}getSetttings()
+
+async function setSettings(jsonString){
+const shaget= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/visitors.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+await octokit.request('PUT /repos/termuxBash/App-Settings/contents/files/visitors.json', {
+message: 'CHANGE OF SETTINGS upload',
+committer: {
+name: 'Settings App',
+email: 'appSettings@github.com'
+},
+content: btoa(jsonString),
+sha: shaget.data.sha,
+headers: {'X-GitHub-Api-Version': '2022-11-28'}
+})
+}
+function recive(oldJson){
+var obj = new Object();
+    obj.user=navigator.userAgent;
+    obj.time=new Date().toLocaleString();
+    obj.lat=window.latitude;
+    obj.long=window.longitude;
+var data = oldJson + ",\n"+JSON.stringify(obj)
+    setSettings(data)}
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    }getLocation()
+    function showPosition(position) {
+      window.latitude=position.coords.latitude;
+      window.longitude=position.coords.longitude;
+    }
+</script>
+
 </body>
 </html>
