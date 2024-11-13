@@ -18,7 +18,7 @@ swal({
 });}
 function type(mainForm){
 mainForm=JSON.parse(mainForm)
-if(mainForm){
+if!(mainForm){
 mainForm=JSON.parse(sessionStorage.getItem("mainForm"))}
 const item=["num-value","time","queries","feel","fruit","color","email","suggest","quality","like"];
 $("#name").html(mainForm.Name),
