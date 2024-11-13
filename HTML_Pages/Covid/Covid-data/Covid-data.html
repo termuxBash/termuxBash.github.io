@@ -98,5 +98,15 @@
 </div>
 </footer>
 <script src="../../../Codes/Libraries/eruda.js" async onload="eruda.init()"></script>
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+var octokit=new Octokit({auth: (await (await fetch("https://dev.opendrive.com/api/v1/download/file.json/NTdfOTUyMjM1MzZf")).json()).git})
+async function getSetttings(){
+const getterIn= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/CovidFormData.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+type(atob(getterIn.data.content))
+}getSetttings()
+</script>
 </body>
 </html>
