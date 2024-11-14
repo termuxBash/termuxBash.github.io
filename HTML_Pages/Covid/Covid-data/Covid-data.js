@@ -17,9 +17,8 @@ swal({
     buttons: false
 });}
 function type(mainForm){
-mainForm=JSON.parse(mainForm)
-if!(mainForm){
-mainForm=JSON.parse(sessionStorage.getItem("mainForm"))}
+if(mainForm){mainForm=JSON.parse(mainForm)}
+else{mainForm=JSON.parse(sessionStorage.getItem("mainForm"))}
 const item=["num-value","time","queries","feel","fruit","color","email","suggest","quality","like"];
 $("#name").html(mainForm.Name),
 $('input[name="cards"][value="'+mainForm.cards+'"]').prop("checked",true),
