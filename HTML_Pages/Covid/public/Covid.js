@@ -507,8 +507,8 @@ navigator.clipboard.writeText(time);
 }
 
 let list = document.getElementById("myUL");
-var data=man.map(man => man.name);
-        data.forEach((item) => {
+var manDat=man.map(man => man.name);
+        manDat.forEach((item) => {
             let li = document.createElement("li");
             li.innerHTML = item;
             list.appendChild(li);
@@ -538,14 +538,13 @@ manSclose=()=>{manSearch.css('display',"none");}
 
 function moreInfo(e){
 if (e.target) {
-    e.target.className = "collapsible"; // new class name here
-    bash("man " + e.target.innerText);
-    manIndex=data.indexOf(e.target.innerText)
+    bash("man "+e.target.innerText);
+    manIndex=search(e.target.innerText.toLowerCase())
     alert("Name: "+man[manIndex].name+
     "\nIndex: "+man[manIndex].id
     +"\nRating: "+man[manIndex].rt+" ⭐"
     +"\nCurrent: "+man[manIndex].on);
-        navigator.clipboard.writeText(man[manIndex].id)
+   navigator.clipboard.writeText(man[manIndex].id)
 }
 }
 

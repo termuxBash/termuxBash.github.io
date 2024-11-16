@@ -107,21 +107,40 @@ on:'mov 2h'},
 {name:"Whisper of the heart",
 id:259,rt:3,
 on:'mov 2h'},
+{name:"Child chases lost voice",
+id:1277,rt:2.5,
+on:'mov 2h'},
+{name:"Voice of far star",
+id:2584,rt:1,
+on:'mov 25m'},
+{name:"Gin",
+id:13,rt:5},
+{name:"When marine was there",
+id:360,rt:3,
+on:'mov 2h'},
+{name:"The boy n the hero",
+id:15765,rt:0,
+on:'mov 2h'}
 ];
 var names=man.map(man => man.name.toLowerCase());
-function search(name) {
+function search(nameFind){
+// func works with 1 word only ?
+nameFind=nameFind.split(" ")[0];
 for(var i = 0; i < names.length; i++) { //Loop thr the names array
   words = names[i].split(" ");
-  for(var j =0; j < words.length; j++){ //Loop thr the words array created by a name
-    if(words[j].substring(0, name.length) === name){
+  for(var j =0; j < words.length; j++){ //Loop thr the words array created by a names
+    if(words[j].substring(0, nameFind.length) === nameFind){ // matches part of word from database to word to be searched
+      //The above chops names array according to length of part of word to search
+      //if it matches the word searched ie. nameFind then return i
       return i;
+      alert(i)
       break;
     }
   }
  }
 }
-function mango(name){
-var manIndex=search(name);
+function mango(named){
+var manIndex=search(named);
 console.log("Name: ",man[manIndex].name);
 console.log("Index: ",man[manIndex].id);
 navigator.clipboard.writeText(man[manIndex].id)
