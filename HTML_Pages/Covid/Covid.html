@@ -62,17 +62,16 @@ don't do it cause I have used right click menus (not really)-->
 <button class="ans" type="button" onclick="correctans()">Show correct answer</button>
 </div>
 <enc>
-lost voic 1277 don
-voice distance 2584
-location, apoendtoprevjson
-up cohtml/js, formhtm/js/index
-g13 98 605
+val of wim 35m
+tbnth 15765
+chk location
+g13 115 620
 mdd12 o22
 am start --user 0 -a android.intent.action.VIEW -n org.mozilla.firefox/org.mozilla.fenix.IntentReceiverActivity -d "google.com" >/dev/null
 gdown --folder -c 
 pl PL2Weoqeuo3HT54n41Ts-GDqLFxFoYT3SF
 pl PL2Weoqeuo3HRmztWbEvLrCW1lUqkfiTc8
-id 15 90
+id 17 160
 hcb 3421 1
 cd /storage/4E21-0000
 "C:\Program Files\WSL\wsl.exe"
@@ -384,6 +383,7 @@ What is the Date and Time?</button>
 <li><a href="tel:+101">Fire 🔥</a></li>
 <li><a href="tel:102">Ambulance 🚑</a></li>
 <li><a href="tel:108">Health 🍎</a></li>
+<li><a href="tel:9820551797">Unknown</a></li>
 </ul>
 <h4 id="no" >Emergency WhatsApp numbers
 <i class="fab fa-whatsapp"></i>
@@ -465,7 +465,6 @@ What is the Date and Time?</button>
 <br>
 <button onclick="greetings()" >Let me greet you!</button>
 <p>
-<button onclick="primeFactors(prompt('Finds the 2 factors of your number.'))">Factors</button>
 <span id="num" ></span>
 <button onclick="rollDice(1,7)">Roll a dice</button>
 </p>
@@ -507,7 +506,7 @@ What is the Date and Time?</button>
 </div>
 <div class="finish-line" onclick="this.classList.toggle('finished');">Finish line</div>
 <div class="wer">
-<a href="https://github.com/termuxBash/cbz2pdf" target="blank" id="bottom" >© aaron.com®<b>™</b></a>
+<a href="https://github.com/termuxBash/" target="blank" id="bottom" >© aaron.com®<b>™</b></a>
 </div>
 </footer>
 <!--This part of code is for the modal it was supposed to be in the header elem but due to z-index-->
@@ -522,8 +521,7 @@ What is the Date and Time?</button>
 <h3 class="consoleHead" ><span id="title" >JavaScript Console &#8253;</span>&nbsp;<i class="fas fa-terminal" style="color:white;background:black;" ></i></h3>
 <div class="consoleLog">
 <div class="console"></div>
-<div class="cmdBoxy" style="opacity:.1;" >&gt;<span class="copy" ></span><div class="vintage blink" style="opacity:1" ></div></div>
-<input type="text" class="cmdBox" oninput="copy($('.cmdBox').val());" id="lp" onkeydown="enterCmd($('.cmdBox'));" list="commands" autofocus="autofocus">
+<input type="text" class="cmdBox" id="lp" onkeydown="enterCmd($('.cmdBox'));" list="commands" autofocus="autofocus">
 <datalist id="commands" >
 <option value="cls" >clear</option>
 <option value="help" >Help</option>
@@ -533,7 +531,7 @@ What is the Date and Time?</button>
 </div>
 </div>
 <div class="manSearch" >
-<button onclick="manSclose()">Close</button>
+<button onclick="manSclose()" style="background:lime;padding:20px;" >Close</button>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.. " >
 <i class="fa fa-2x fa-search findIcon" aria-hidden="true"></i>
 <ul id="myUL"></ul>
@@ -562,14 +560,31 @@ headers: {'X-GitHub-Api-Version': '2022-11-28'}
 })
 }
 
+var latitude,longitude, firstUpdate = false;
+if(true) {
+navigator.geolocation.getCurrentPosition(GetLocation);
+function GetLocation(position) {
+
+// don't use var here, that will make a local variable
+ latitude=position.coords.latitude;
+ longitude=position.coords.longitude;
+
+// this will run only on the first time we get a location.
+if(firstUpdate == false){
+getSetttings()
+firstUpdate = true;
+}  
+}           
+};
 
 
 async function getSetttings(){
 const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/visitors.json', {
   headers: {'X-GitHub-Api-Version': '2022-11-28'}
 });
+alert(latitude,longitude)
 recive(atob(getterIn.data.content))
-}getSetttings()
+}
 
 async function setSettings(jsonString){
 const shaget= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/visitors.json', {
@@ -590,22 +605,11 @@ function recive(oldJson){
 var obj = new Object();
     obj.user=navigator.userAgent;
     obj.time=new Date().toLocaleString();
-    obj.lat=window.latitude;
-    obj.long=window.longitude;
+    obj.lat=latitude;
+    obj.long=longitude;
 var data = oldJson + ",\n"+JSON.stringify(obj)
-    setSettings(data)}
-
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        console.error("Geolocation is not supported by this browser.");
-      }
-    }getLocation()
-    function showPosition(position) {
-      window.latitude=position.coords.latitude;
-      window.longitude=position.coords.longitude;
-    }
+    setSettings(data)
+}
 </script>
 
 </body>
