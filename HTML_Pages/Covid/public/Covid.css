@@ -1016,12 +1016,7 @@ caret-color:#333;}
 .cmdBox{
 font-size:1em;
 font-family:CourNew,Courier new,monospace;}
-.cmdBoxy{
-position:relative;
-top:1.2rem;
-background-color:red;
-height:1.5rem;
-width:99%;}
+
 .console{
 max-height:40rem;
 overflow:auto;}
@@ -1030,12 +1025,7 @@ overflow:auto;}
 .log-object,.log-string{color:orange;}
 .log-number{color:cyan;}
 .log-error{color:red;}
-.vintage{
-position:relative;
-background-color:white;
-height:25%;
-width:2%;
-left:1ch;}
+
 .wincover{
 display:flex;
 align-items:center;

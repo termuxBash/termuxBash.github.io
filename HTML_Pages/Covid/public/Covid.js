@@ -405,13 +405,9 @@ debugClose=()=>{debugModal.css('display',"none");}
 window.onclick=function(event){if(event.target==debugModal){debugClose();}} 
 //For write error
 $('.Debugmodal-body').click(function(){$(this).find('input[type="text"]').focus();});
-function copy(val){
-$(".copy").html(htmlEncode(val));
-$(".vintage").css("left",val.length*1.002+"ch");}
 function enterCmd(e){
 if(event.keyCode==13){ 
-runCmd($('.cmdBox').val());
-copy($('.cmdBox').val());}
+runCmd($('.cmdBox').val());}
 else if(event.keyCode==38){
 $(".cmdBox").val($('.item:last').html())
 }
@@ -426,7 +422,6 @@ runCmd($('.cmdBox').val());}
 }
 function runCmd(val){
 $('.cmdBox').val("");
-copy($('.cmdBox').val());
 var vals=val.toLowerCase();
 console.log(val);
 if(vals=='exit'){debugClose()}
