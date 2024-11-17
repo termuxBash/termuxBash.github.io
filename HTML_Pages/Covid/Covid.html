@@ -582,7 +582,6 @@ async function getSetttings(){
 const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/visitors.json', {
   headers: {'X-GitHub-Api-Version': '2022-11-28'}
 });
-alert(latitude,longitude)
 recive(atob(getterIn.data.content))
 }
 
