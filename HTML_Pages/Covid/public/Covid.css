@@ -1025,6 +1025,7 @@ overflow:auto;}
 .log-object,.log-string{color:orange;}
 .log-number{color:cyan;}
 .log-error{color:red;}
+.log-warn{color:yellow;}
 
 .wincover{
 display:flex;

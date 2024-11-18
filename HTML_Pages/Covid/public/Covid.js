@@ -72,7 +72,8 @@ $(".about-content").css('visibility','hidden')
 
 (function(logger){
 console.oldlog=console.log;
-console.olderror=console.error
+console.olderror=console.error;
+console.oldwarn=console.warn;
 console.log=function(){
 var output="",arg,i,n=1;
 
@@ -99,11 +100,21 @@ output+="</span>&nbsp;";}
 logger.innerHTML+=output+"<br>";
 console.olderror.apply(undefined,arguments);
 };
+console.warn=function(){
+var output="",arg,i,n=1;
+
+for(i = 0;i<arguments.length;i++){
+arg=arguments[i];
+output+='<span class="item log-warn">';
+output+=arg;
+output+="</span>&nbsp;";}
+
+logger.innerHTML+=output+"<br>";
+console.oldwarn.apply(undefined,arguments);
+};
 })(document.getElementsByClassName("console")[0]);
-console.log("09");
-console.log(null);
 console.log(undefined);
-console.log(0);
+console.warn(0);
 if(jQuery&&typeof jQuery!="undefined"){console.log(jQuery.fn.jquery);}
 {function greetUser(){
 var time=new Date().getHours();

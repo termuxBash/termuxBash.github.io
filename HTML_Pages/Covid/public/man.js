@@ -120,6 +120,9 @@ id:360,rt:3,
 on:'mov 2h'},
 {name:"The boy n the hero",
 id:15765,rt:0,
+on:'mov 2h'},
+{name:"Nausicaa The valley of win",
+id:141,rt:0,
 on:'mov 2h'}
 ];
 var names=man.map(man => man.name.toLowerCase());
