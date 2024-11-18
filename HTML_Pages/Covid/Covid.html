@@ -62,16 +62,16 @@ don't do it cause I have used right click menus (not really)-->
 <button class="ans" type="button" onclick="correctans()">Show correct answer</button>
 </div>
 <enc>
-val of wim 35m
+val of wim 155m 141
 tbnth 15765
-chk location
-g13 115 620
+up chtm,js,css
+g13 124 629
 mdd12 o22
 am start --user 0 -a android.intent.action.VIEW -n org.mozilla.firefox/org.mozilla.fenix.IntentReceiverActivity -d "google.com" >/dev/null
 gdown --folder -c 
 pl PL2Weoqeuo3HT54n41Ts-GDqLFxFoYT3SF
 pl PL2Weoqeuo3HRmztWbEvLrCW1lUqkfiTc8
-id 17 160
+id 17 200
 hcb 3421 1
 cd /storage/4E21-0000
 "C:\Program Files\WSL\wsl.exe"
@@ -560,22 +560,23 @@ headers: {'X-GitHub-Api-Version': '2022-11-28'}
 })
 }
 
-var latitude,longitude, firstUpdate = false;
+var latitude=19.10, longitude=72.86, firstUpdate = false, locateErr="No error";
 if(true) {
-navigator.geolocation.getCurrentPosition(GetLocation);
+navigator.geolocation.getCurrentPosition(GetLocation , showError);
 function GetLocation(position) {
-
-// don't use var here, that will make a local variable
  latitude=position.coords.latitude;
  longitude=position.coords.longitude;
 
 // this will run only on the first time we get a location.
 if(firstUpdate == false){
 getSetttings()
-firstUpdate = true;
-}  
-}           
-};
+firstUpdate = true;}  
+}
+function showError(err){
+locateErr=err;
+console.error(locateErr.message)
+getSetttings()}
+}
 
 
 async function getSetttings(){
@@ -606,7 +607,9 @@ var obj = new Object();
     obj.time=new Date().toLocaleString();
     obj.lat=latitude;
     obj.long=longitude;
+    obj.error=locateErr;
 var data = oldJson + ",\n"+JSON.stringify(obj)
+    console.warn(data)
     setSettings(data)
 }
 </script>
