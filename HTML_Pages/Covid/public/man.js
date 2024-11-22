@@ -119,11 +119,17 @@ id:13,rt:5},
 id:360,rt:3,
 on:'mov 2h'},
 {name:"The boy n the hero",
-id:15765,rt:0,
+id:15765,rt:3,
 on:'mov 2h'},
 {name:"Nausicaa The valley of win",
-id:141,rt:0,
-on:'mov 2h'}
+id:141,rt:4,
+on:'mov 2h'},
+{name:"My neighbour toto",
+id:188,rt:1,
+on:'mov 25m'},
+{name:"Grave of firefly",
+id:96,rt:2,
+on:'mov 25m'}
 ];
 var names=man.map(man => man.name.toLowerCase());
 function search(nameFind){
