@@ -351,6 +351,7 @@ mainForm.email=form2.email.value
 mainForm.suggest=$('textarea[name="suggest"]').val()
 mainForm.quality=form2.quality.value
 mainForm.like=$('input[name="l-ds"]:checked').val()
+mainForm.timeOfSubmit=new Date().toLocaleString();
 s.setItem("mainForm",JSON.stringify(mainForm))
 window.json=JSON.stringify(mainForm)
 }
