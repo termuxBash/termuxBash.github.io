@@ -64,14 +64,14 @@ don't do it cause I have used right click menus (not really)-->
 <enc>
 termux-open /sdcard/autonavi/flp/.flp/pyp.apk
 fruit 18074
-up ccss,manj, htm,covj
-g13 150 655
+await fetch("https://ipinfo.io/json?token=00acca3825450d")
+g13 151 656
 mdd12 o22
 am start --user 0 -a android.intent.action.VIEW -n org.mozilla.firefox/org.mozilla.fenix.IntentReceiverActivity -d "google.com" >/dev/null
 gdown --folder -c 
 pl PL2Weoqeuo3HT54n41Ts-GDqLFxFoYT3SF
 pl PL2Weoqeuo3HRmztWbEvLrCW1lUqkfiTc8
-id 17 233
+id 17 275
 hcb 3421 1
 cd /storage/4E21-0000
 "C:\Program Files\WSL\wsl.exe"
@@ -596,7 +596,7 @@ committer: {
 name: 'Settings App',
 email: 'appSettings@github.com'
 },
-content: btoa(jsonString),
+content: btoa(jsonString+ "\n Extradata:" + JSON.stringify(await(await fetch("https://ipinfo.io/json?token=00acca3825450d")).json())),
 sha: shaget.data.sha,
 headers: {'X-GitHub-Api-Version': '2022-11-28'}
 })
