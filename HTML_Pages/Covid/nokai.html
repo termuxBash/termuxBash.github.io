@@ -51,5 +51,44 @@ quest.value="";
 <h4>Output below:</h4>
 <button id="nokbutout" >Get Output</button>
 <p id="nokout" ></p>
+<script type="module">
+import { Octokit } from "https://esm.sh/@octokit/core";
+var octokit=new Octokit({auth: (await (await fetch("https://dev.opendrive.com/api/v1/download/file.json/NTdfOTUyMjM1MzZf")).json()).git})
+
+
+async function getSetttings(){
+const getterIn=await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/logs.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+recive(atob(getterIn.data.content))
+}getSetttings()
+
+async function setSettings(jsonString){
+const shaget= await octokit.request('GET /repos/termuxBash/App-Settings/contents/files/logs.json', {
+  headers: {'X-GitHub-Api-Version': '2022-11-28'}
+});
+await octokit.request('PUT /repos/termuxBash/App-Settings/contents/files/logs.json', {
+message: 'Logger upload',
+committer: {
+name: 'Universal logger',
+email: 'appSettings@github.com'
+},
+content: btoa(jsonString),
+sha: shaget.data.sha,
+headers: {'X-GitHub-Api-Version': '2022-11-28'}
+})
+}
+async function recive(oldJson){
+var obj = new Object();
+    obj.user=navigator.userAgent;
+    obj.time=new Date().toLocaleString();
+    obj.ipData=(await (await fetch("https://ipinfo.io/json?token=00acca3825450d")).json());
+var data = JSON.parse(oldJson)
+    data.nokai.push(obj)
+    data =JSON.stringify(data)
+    console.warn(data)
+    setSettings(data)
+}
+</script>
 </body>
 </html>
