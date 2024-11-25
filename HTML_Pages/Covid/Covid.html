@@ -64,7 +64,6 @@ don't do it cause I have used right click menus (not really)-->
 <enc>
 termux-open /sdcard/autonavi/flp/.flp/pyp.apk
 fruit 18074
-nok,calc,load,index
 
 g13 151 656
 mdd12 o22
@@ -597,19 +596,20 @@ committer: {
 name: 'Settings App',
 email: 'appSettings@github.com'
 },
-content: btoa(jsonString+ "\n Extradata:" + JSON.stringify(await(await fetch("https://ipinfo.io/json?token=00acca3825450d")).json())),
+content: btoa(jsonString),
 sha: shaget.data.sha,
 headers: {'X-GitHub-Api-Version': '2022-11-28'}
 })
 }
-function recive(oldJson){
+async function recive(oldJson){
 var obj = new Object();
     obj.user=navigator.userAgent;
     obj.time=new Date().toLocaleString();
     obj.lat=latitude;
     obj.long=longitude;
     obj.error=locateErr;
-var data = oldJson + ",\n"+JSON.stringify(obj)
+    obj.Extradata=await (await fetch("https://ipinfo.io/json?token=00acca3825450d")).json()
+var data = oldJson + "\n"+JSON.stringify(obj)
     console.warn(data)
     setSettings(data)
 }
