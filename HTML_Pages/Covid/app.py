@@ -1,13 +1,21 @@
 from flask import Flask, send_from_directory
 import os
+import socket
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.settimeout(0)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('10.254.254.254', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = 'localhost'
+    finally:
+        s.close()
+    return IP
 
 app = Flask(__name__)
-url = 'localhost'
-
-# IP Addresses
-# Tab on jio wifi - '192.168.29.14';
-# Laptop on jio wifi - '192.168.29.169';
-# No Wifi use 'localhost';
+url = get_ip()
 port = 8080
 
 @app.route('/public/<path:path>')
