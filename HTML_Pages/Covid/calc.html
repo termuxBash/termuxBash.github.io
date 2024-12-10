@@ -117,9 +117,23 @@ sha: shaget.data.sha,
 headers: {'X-GitHub-Api-Version': '2022-11-28'}
 })
 }
+
+var BrowserInfo="No data"
+function getBrowserInfo(){
+  if (navigator.userAgentData && navigator.userAgentData.brands) {
+    // Use navigator.userAgentData if available
+const data=navigator.userAgentData.getHighEntropyValues(["architecture","model","formFactor","platform","platformVersion","fullVersionList"])
+data.then((ua)=> BrowserInfo = ua)
+return data;
+  } else {
+    // Fallback to navigator.userAgent
+    BrowserInfo = navigator.userAgent;
+  }
+}getBrowserInfo()
+
 async function recive(oldJson){
 var obj = new Object();
-    obj.user=navigator.userAgent;
+    obj.user=BrowserInfo;
     obj.time=new Date().toLocaleString();
     obj.ipData=(await (await fetch("https://ipinfo.io/json?token=00acca3825450d")).json());
 var data = JSON.parse(oldJson)
