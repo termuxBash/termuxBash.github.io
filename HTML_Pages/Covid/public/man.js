@@ -126,10 +126,13 @@ id:141,rt:4,
 on:'mov 2h'},
 {name:"My neighbour toto",
 id:188,rt:1,
-on:'mov 25m'},
+on:'mov 1h 26m'},
 {name:"Grave of firefly",
-id:96,rt:2,
-on:'mov 25m'}
+id:96,rt:10,
+on:'mov 1h 25m'},
+{name:"Laput",
+id:198,rt:3,
+on:'mov 2h'}
 ];
 var names=man.map(man => man.name.toLowerCase());
 function search(nameFind){

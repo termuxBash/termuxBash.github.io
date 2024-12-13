@@ -375,7 +375,7 @@ let topBtn=$(".go-up-btn");
 if(document.body.scrollTop>20||document.documentElement.scrollTop>20){topBtn.addClass("button-active");}
 else{topBtn.removeClass("button-active");}}
 //below for typewriter
-var songID=0;
+var songID=Math.floor(Math.random()*lrc.length);
 var about=$(".about"),aboutSound=$("#aboutAudio"),
 mtAudio=document.getElementById("mtAudio"),
 mtAudioProgress=document.getElementById("mtAudioProgress");
