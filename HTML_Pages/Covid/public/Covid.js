@@ -360,8 +360,8 @@ window.json=JSON.stringify(mainForm)
 let typeChara=0;
 function typeWriter(){
 if (typeChara < txt.length) {
-var spans = '<span>' + txt.split("")[typeChara]+'</span>';
-$(spans).appendTo(".about-contentTxt")
+var spans = txt.split("")[typeChara];
+$(".about-contentTxt").append(spans)
 typeChara++;
 setTimeout(typeWriter, 90);
 var elem = document.getElementsByClassName("about-content")[0];

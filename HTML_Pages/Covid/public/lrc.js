@@ -3,7 +3,7 @@ var audio=document.getElementById("mtAudio");
 var audioSrc=audio.src;
 audioSrc="https://github.com/termuxBash/App-settings/raw/refs/heads/main/music/" + lrc[songID].songB + ".mp3";
 //remember dl.sndup in lrc.save
-mtAudio.setAttribute('src',audioSrc);
+if(navigator.onLine) mtAudio.setAttribute('src',audioSrc)
 console.log(audioSrc);
 document.getElementById("mtAudio").play()
 }
@@ -97,7 +97,7 @@ Jibun no KIMOCHI ni mas-sugu-de itai
 Dakedo-hitosoku-ya IT'S A GOOD NIGHT
 Dare-ni-mo BARE-takunai NAISHO tte aru-mono-dakara
 Munega chotto-wo MY SECRET
-437`},
+`},
 {id:"ks",
 song:"tunes/ks",
 songB:"ks",
